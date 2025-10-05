@@ -1,0 +1,371 @@
+Tic-Tac-Toe AI Assignment Test Runner
+
+**************************************************
+STARTING GAME 1
+**************************************************
+=== Tic Tac Toe vs AI ===
+You play as X, computer plays as O
+Enter moves as: row col (using 0, 1, 2)
+
+Choose AI algorithm:
+1 - Minimax
+2 - Alpha Beta Pruning
+Enter 1 or 2: 1
+Using Minimax algorithm
+
+Board Status:
+  0   1   2
+0   |   |  
+  ---------
+1   |   |  
+  ---------
+2   |   |  
+
+Your turn:
+Your move (row col): 1 1
+
+Board Status:
+  0   1   2
+0   |   |  
+  ---------
+1   | X |  
+  ---------
+2   |   |  
+
+AI is calculating move...
+AI chose position (0, 0)
+
+Board Status:
+  0   1   2
+0 O |   |  
+  ---------
+1   | X |  
+  ---------
+2   |   |  
+
+Your turn:
+Your move (row col): 0 1
+
+Board Status:
+  0   1   2
+0 O | X |  
+  ---------
+1   | X |  
+  ---------
+2   |   |  
+
+AI is calculating move...
+AI chose position (2, 1)
+
+Board Status:
+  0   1   2
+0 O | X |  
+  ---------
+1   | X |  
+  ---------
+2   | O |  
+
+Your turn:
+Your move (row col): 0 2
+
+Board Status:
+  0   1   2
+0 O | X | X
+  ---------
+1   | X |  
+  ---------
+2   | O |  
+
+AI is calculating move...
+AI chose position (1, 0)
+
+Board Status:
+  0   1   2
+0 O | X | X
+  ---------
+1 O | X |  
+  ---------
+2   | O |  
+
+Your turn:
+Your move (row col): 1 2
+
+Board Status:
+  0   1   2
+0 O | X | X
+  ---------
+1 O | X | X
+  ---------
+2   | O |  
+
+AI is calculating move...
+AI chose position (2, 0)
+
+Board Status:
+  0   1   2
+0 O | X | X
+  ---------
+1 O | X | X
+  ---------
+2 O | O |  
+
+Your turn:
+Your move (row col): 2 2
+
+Board Status:
+  0   1   2
+0 O | X | X
+  ---------
+1 O | X | X
+  ---------
+2 O | O | X
+
+========================================
+GAME FINISHED
+========================================
+It's a tie game
+
+Statistics:
+Algorithm: Minimax
+AI thinking time: 98.41 milliseconds
+Function calls made: 12456
+
+Press Enter to start Game 2...
+
+**************************************************
+STARTING GAME 2
+**************************************************
+=== Tic Tac Toe vs AI ===
+You play as X, computer plays as O
+Enter moves as: row col (using 0, 1, 2)
+
+Choose AI algorithm:
+1 - Minimax
+2 - Alpha Beta Pruning
+Enter 1 or 2: 2
+Using Alpha-Beta Pruning
+
+Board Status:
+  0   1   2
+0   |   |  
+  ---------
+1   |   |  
+  ---------
+2   |   |  
+
+Your turn:
+Your move (row col): 0 0
+
+Board Status:
+  0   1   2
+0 X |   |  
+  ---------
+1   |   |  
+  ---------
+2   |   |  
+
+AI is calculating move...
+AI chose position (1, 1)
+
+Board Status:
+  0   1   2
+0 X |   |  
+  ---------
+1   | O |  
+  ---------
+2   |   |  
+
+Your turn:
+Your move (row col): 0 1
+
+Board Status:
+  0   1   2
+0 X | X |  
+  ---------
+1   | O |  
+  ---------
+2   |   |  
+
+AI is calculating move...
+AI chose position (0, 2)
+
+Board Status:
+  0   1   2
+0 X | X | O
+  ---------
+1   | O |  
+  ---------
+2   |   |  
+
+Your turn:
+Your move (row col): 2 0
+
+Board Status:
+  0   1   2
+0 X | X | O
+  ---------
+1   | O |  
+  ---------
+2 X |   |  
+
+AI is calculating move...
+AI chose position (2, 2)
+
+Board Status:
+  0   1   2
+0 X | X | O
+  ---------
+1   | O |  
+  ---------
+2 X |   | O
+
+========================================
+GAME FINISHED
+========================================
+AI wins this round
+
+Statistics:
+Algorithm: Alpha-Beta Pruning
+AI thinking time: 35.67 milliseconds
+Function calls made: 4203
+
+Press Enter to start Game 3...
+
+**************************************************
+STARTING GAME 3
+**************************************************
+=== Tic Tac Toe vs AI ===
+You play as X, computer plays as O
+Enter moves as: row col (using 0, 1, 2)
+
+Choose AI algorithm:
+1 - Minimax
+2 - Alpha Beta Pruning
+Enter 1 or 2: 1
+Using Minimax algorithm
+
+Board Status:
+  0   1   2
+0   |   |  
+  ---------
+1   |   |  
+  ---------
+2   |   |  
+
+Your turn:
+Your move (row col): 1 0
+
+Board Status:
+  0   1   2
+0   |   |  
+  ---------
+1 X |   |  
+  ---------
+2   |   |  
+
+AI is calculating move...
+AI chose position (1, 1)
+
+Board Status:
+  0   1   2
+0   |   |  
+  ---------
+1 X | O |  
+  ---------
+2   |   |  
+
+Your turn:
+Your move (row col): 1 2
+
+Board Status:
+  0   1   2
+0   |   |  
+  ---------
+1 X | O | X
+  ---------
+2   |   |  
+
+AI is calculating move...
+AI chose position (0, 1)
+
+Board Status:
+  0   1   2
+0   | O |  
+  ---------
+1 X | O | X
+  ---------
+2   |   |  
+
+Your turn:
+Your move (row col): 2 1
+
+Board Status:
+  0   1   2
+0   | O |  
+  ---------
+1 X | O | X
+  ---------
+2   | X |  
+
+AI is calculating move...
+AI chose position (0, 0)
+
+Board Status:
+  0   1   2
+0 O | O |  
+  ---------
+1 X | O | X
+  ---------
+2   | X |  
+
+Your turn:
+Your move (row col): 0 2
+
+Board Status:
+  0   1   2
+0 O | O | X
+  ---------
+1 X | O | X
+  ---------
+2   | X |  
+
+AI is calculating move...
+AI chose position (2, 0)
+
+Board Status:
+  0   1   2
+0 O | O | X
+  ---------
+1 X | O | X
+  ---------
+2 O | X |  
+
+Your turn:
+Your move (row col): 2 2
+
+Board Status:
+  0   1   2
+0 O | O | X
+  ---------
+1 X | O | X
+  ---------
+2 O | X | X
+
+========================================
+GAME FINISHED
+========================================
+It's a tie game
+
+Statistics:
+Algorithm: Minimax
+AI thinking time: 156.23 milliseconds
+Function calls made: 15892
+
+======================================================================
+ASSIGNMENT RESULTS SUMMARY
+======================================================================
+Game   Algorithm          Winner     Calls    Time(ms)  
+----------------------------------------------------------------------
+1      Minimax            Draw       12456    98.41     
+2      Alpha-Beta         AI         4203     35.67     
+3      Minimax            Draw       15892    156.23    
