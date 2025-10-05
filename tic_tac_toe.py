@@ -3,7 +3,7 @@ import copy
 
 class TicTacToe:
     def __init__(self):
-        # Initialize empty board
+        # Initialize empty board 1
         self.grid = []
         for i in range(3):
             row = []
