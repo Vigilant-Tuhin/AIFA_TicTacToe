@@ -12,7 +12,7 @@ class TicTacToe:
     """
     def __init__(self):
         """
-        Initializing empty 3x3 board, diagnostic counters, and algorithm selection type.
+        initializing empty 3x3 board, diagnostic counters, and algorithm selection type.
 
         Attributes:
         - grid: 3x3 list of ' ', 'X', or 'O'
@@ -37,12 +37,12 @@ class TicTacToe:
     def start_new_game(self):
         """Start a fresh game"""
         
-        # Clear all cells to spaces
+        #clear all cells to spaces
         for i in range(3):
             for j in range(3):
                 self.grid[i][j] = ' '
         
-        # Reset diagnostics between each game        
+        #reset diagnostics between each game        
         self.call_count = 0
         self.ai_time_total = 0.0
         
@@ -68,7 +68,7 @@ class TicTacToe:
         Guards against out-of-bounds or overpositioning occupied cells.
         """
         
-        # Bounds check first, then emptiness check
+        #check bounds first, then emptiness check
         if row < 0 or row > 2:
             return False
         if col < 0 or col > 2:
@@ -100,25 +100,25 @@ class TicTacToe:
         Checks: rows, columns and both diagonals, then board completeness.
         """
         
-        # Check all rows
+        # check all rows
         for i in range(3):
             if (self.grid[i][0] == self.grid[i][1] == self.grid[i][2]) and self.grid[i][0] != ' ':
                 return self.grid[i][0]
         
-        # Check all columns  
+        # check all columns  
         for j in range(3):
             if (self.grid[0][j] == self.grid[1][j] == self.grid[2][j]) and self.grid[0][j] != ' ':
                 return self.grid[0][j]
         
-        # Check main diagonal
+        # check main diagonal
         if (self.grid[0][0] == self.grid[1][1] == self.grid[2][2]) and self.grid[0][0] != ' ':
             return self.grid[0][0]
             
-        # Check other diagonal
+        # check other diagonal
         if (self.grid[0][2] == self.grid[1][1] == self.grid[2][0]) and self.grid[0][2] != ' ':
             return self.grid[0][2]
         
-        # Check if board full
+        # check if the board is full
         spaces_left = 0
         for i in range(3):
             for j in range(3):
@@ -128,7 +128,7 @@ class TicTacToe:
         if spaces_left == 0:
             return 'Draw'
         
-        return None  # Game still going
+        return None  # game still ongoing
     
     def find_empty_spots(self):
         """
@@ -154,9 +154,9 @@ class TicTacToe:
         """
         
         result = self.game_status()
-        if result == 'O':  # AI victory
+        if result == 'O':  # AI wins!
             return 10
-        elif result == 'X':  # Human victory  
+        elif result == 'X':  # Human wins!  
             return -10
         else:
             return 0
@@ -184,21 +184,21 @@ class TicTacToe:
         - Uses deepcopy to generate child states safely.
         """
         
-        # Count this recursive call for diagnostics
+        # count this recursive call for diagnostics
         self.call_count += 1
         
-        # Save current state
-        # Temporarily redirects the helpers to inspect this simulated board
+        # save current state
+        # temporarily redirects the helpers to inspect this simulated board
         old_grid = self.grid
         self.grid = board
         
         current_score = self.score_position()
         status = self.game_status()
         
-        # Restore original board immediately after querying
+        # restore original board immediately after querying
         self.grid = old_grid
         
-        # Terminal cases (depth-sensitive preferring faster outcomes)
+        # terminal cases (depth-sensitive preferring faster outcomes)
         if status == 'O':
             return 10 - depth   # prefer quicker wins
         elif status == 'X':
@@ -209,7 +209,7 @@ class TicTacToe:
         if maximizing_player:
             # AI turn: chooses move that maximizes the value
             max_eval = float('-inf')
-            # Try all possible moves
+            # try all possible moves
             for row in range(3):
                 for col in range(3):
                     if board[row][col] == ' ':
@@ -221,9 +221,9 @@ class TicTacToe:
                         max_eval = max(max_eval, eval_score)
             return max_eval
         else:
-            # Opponent turn: minimize the AI's utility
+            # opponent turn to minimize the AI's utility
             min_eval = float('inf')
-            # Try all possible moves
+            # try all possible moves
             for row in range(3):
                 for col in range(3):
                     if board[row][col] == ' ':
@@ -253,20 +253,20 @@ class TicTacToe:
         - When alpha >= beta, remaining sibling nodes cannot influence the ancestor's choice and are pruned.
         """
         
-        # Track recursion count
+        # track recursion count
         self.call_count += 1
         
-        # Evaluate terminal condition on this node using helper methods
+        # evaluate terminal condition on this node using helper methods
         old_grid = self.grid
         self.grid = board
         
         current_score = self.score_position()
         status = self.game_status()
         
-        # Restore state  
+        # restore the state  
         self.grid = old_grid
         
-        # Base cases
+        # base cases
         if status == 'O':
             return 10 - depth
         elif status == 'X':
@@ -276,7 +276,7 @@ class TicTacToe:
         
         if maximizing_player:
             max_eval = float('-inf')
-            # Check all moves for AI ('O')
+            # check all moves for AI ('O')
             for row in range(3):
                 for col in range(3):
                     if board[row][col] == ' ':
@@ -286,13 +286,13 @@ class TicTacToe:
                         max_eval = max(max_eval, eval_score)
                         alpha = max(alpha, eval_score)
                         if beta <= alpha:
-                            break  # Prune remaining branches
+                            break  # prune remaining branches
                 if beta <= alpha:
                     break
             return max_eval
         else:
             min_eval = float('inf')
-            # Check all moves for User ('X')
+            # check all moves for User ('X')
             for row in range(3):
                 for col in range(3):
                     if board[row][col] == ' ':
@@ -302,7 +302,7 @@ class TicTacToe:
                         min_eval = min(min_eval, eval_score)
                         beta = min(beta, eval_score)
                         if beta <= alpha:
-                            break  # Prune
+                            break  # prune
                 if beta <= alpha:
                     break
             return min_eval
@@ -317,33 +317,33 @@ class TicTacToe:
         best_position = None
         best_value = float('-inf')
         
-        # Start timing AI computation for this decision
+        # start timing AI computation for this decision
         start = time.time()
         
-        # Precompute legal moves once to avoid repeated scanning
+        # precompute legal moves once to avoid repeated scanning
         available_moves = self.find_empty_spots()
         
         for move in available_moves:
             row, col = move
             
-            # Simulate placing 'O' and evaluate the resulting position
+            # simulate placing 'O' and evaluate the resulting position
             test_board = copy.deepcopy(self.grid)
             test_board[row][col] = 'O'
             
             calls_before = self.call_count
             
-            # Select search method based on user choice
+            # select the search method based on user choice
             if self.chosen_algo == 'minimax':
                 move_value = self.minimax_search(test_board, 0, False)
             else:
                 move_value = self.alpha_beta_search(test_board, 0, float('-inf'), float('inf'), False)
             
-            # Track the best-scoring move so far
+            # track the best-scoring move so far
             if move_value > best_value:
                 best_value = move_value
                 best_position = move
         
-        # Stop timing and add to total AI time (ms)
+        # stop timing and add to total AI time (ms)
         end = time.time()
         elapsed = (end - start) * 1000
         self.ai_time_total += elapsed
@@ -402,7 +402,7 @@ class TicTacToe:
         print("You play as X, computer plays as O")
         print("Enter moves as: row col (using 0, 1, 2)")
         
-        # Let user pick algorithm
+        # let the user pick algorithm
         while True:
             print("\nChoose AI algorithm:")
             print("1 - Minimax")
@@ -420,12 +420,12 @@ class TicTacToe:
             else:
                 print("Invalid choice, try again")
         
-        # Show initial empty board
+        # show the initial empty board
         self.print_board()
         
-        # Game loop
+        # game loop
         while True:
-            # Human turn
+            # human turn
             print("Your turn:")
             player_row, player_col = self.get_player_input()
             self.place_symbol(player_row, player_col, 'X')
@@ -448,7 +448,7 @@ class TicTacToe:
                 if result is not None:
                     break
         
-        # Show final results
+        # show final results
         print("\n" + "="*40)
         print("GAME FINISHED")
         print("="*40)
@@ -468,7 +468,7 @@ class TicTacToe:
         
         return result
 
-# Main execution
+# main
 def main():
     """
     Main function for running three sequential games and printing a summary table.
@@ -491,7 +491,7 @@ def main():
         ttt = TicTacToe()
         outcome = ttt.run_game()
         
-        # Store results for summary
+        # store results for summary
         game_results.append({
             'number': game_num,
             'algorithm': ttt.chosen_algo,
@@ -503,7 +503,7 @@ def main():
         if game_num < 3:
             input(f"\nPress Enter to start Game {game_num + 1}...")
     
-    # Final summary table
+    # final summary table
     print(f"\n{'='*70}")
     print("ASSIGNMENT RESULTS SUMMARY")  
     print(f"{'='*70}")
@@ -522,4 +522,5 @@ def main():
     
 
 if __name__ == "__main__":
+
     main()
